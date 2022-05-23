@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -7,9 +7,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" v-if="logged">
+          <li>
+            <router-link to="/" class="nav-link">Inicio</router-link>
+          </li>
           <li class="nav-item">
-            <router-link to="/login" class="nav-link">Iniciar Sesión</router-link>
+            <button class="btn btn-dark" @click="logout">Cerrar sesión</button>
+          </li>
+        </ul>
+        <ul class="navbar-nav" v-else>
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Inicio</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/access-account" class="nav-link">Iniciar sesión</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/auth/signup" class="nav-link">Registarse</router-link>
           </li>
         </ul>
       </div>
@@ -23,5 +37,21 @@
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      logged: false
+    }
+  },
+  created() {
+    if(sessionStorage.getItem('user_token'))
+      this.logged = true;
+  },
+  methods: {
+    logout: function() {
+      sessionStorage.removeItem('user_token');
+      sessionStorage.removeItem('user_id');
+      window.location.href = '/access-account';
+    }
+  }
 }
 </script>
