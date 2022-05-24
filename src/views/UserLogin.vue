@@ -16,7 +16,7 @@
                     <input v-model="password" type="password" class="form-control" id="InputPassword">
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
-                <p class="text-center mt-3">¿No tienes cuenta? Registrate</p>
+                <p class="text-center mt-3">¿No tienes cuenta? <router-link to="/auth/signup">Registrate</router-link></p>
                 <p class="link text-center mt-2">¿Olvidaste tu contraseña?</p>
             </form>
         </div>
@@ -78,7 +78,7 @@ export default {
     }
 
     .form {
-        width: 85%;
+        width: 90%;
         margin-top: 50px;
     }
 }

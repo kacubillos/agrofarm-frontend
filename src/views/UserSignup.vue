@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Terminar</button>
-                <p class="text-center mt-3">¿Ya tienes una cuenta? Inicia sesión</p>
+                <p class="text-center mt-3">¿Ya tienes una cuenta? <router-link to="/auth/login">Inicia sesión</router-link></p>
             </form>
         </div>
     </div>

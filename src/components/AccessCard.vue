@@ -30,4 +30,10 @@ export default {
     background-color: #fff;
     border-radius: 15px;
 }
+
+@media (max-width: 1200px) {
+    .rounded-form {
+        width: 100%;
+    }
+}
 </style>
